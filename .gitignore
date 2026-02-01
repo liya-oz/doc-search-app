@@ -33,7 +33,7 @@ yarn-error.log*
 
 # env files
 .env*
-# commit .env.local only if necessary, otherwise keep ignored
+.env.local
 
 # vercel
 .vercel
