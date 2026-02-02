@@ -5,10 +5,9 @@ import { errorResponse } from '@/service/responses';
 import crypto from 'crypto';
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const anonKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY!;
-const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const supabaseStorage = createClient(url, serviceKey || anonKey);
-const supabase = createClient(url, anonKey);
+const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+const supabaseStorage = createClient(url, serviceKey);
+const supabase = createClient(url, serviceKey);
 const openai = new OpenAI();
 
 export async function POST(req: Request) {
