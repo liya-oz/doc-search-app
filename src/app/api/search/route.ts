@@ -1,6 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 import OpenAI from 'openai';
 import { NextResponse } from 'next/server';
+import { isRateLimited } from '@/utils/limiter';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -9,6 +10,15 @@ const supabase = createClient(
 const openai = new OpenAI();
 
 export async function POST(req: Request) {
+  const ip = req.headers.get('x-forwarded-for') || 'unknown';
+
+  if (isRateLimited(ip)) {
+    return new Response(
+      JSON.stringify({ error: 'Too many requests. Please try again later.' }),
+      { status: 429, headers: { 'Content-Type': 'application/json' } },
+    );
+  }
+
   try {
     const { query } = await req.json();
 
