@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     const match_count = query.length < 40 ? 3 : 5;
     const { data: results, error } = await supabase.rpc('match_documents', {
       query_embedding: JSON.stringify(emb.data[0].embedding),
-      match_threshold: 0.75,
+      match_threshold: 0.0,
       match_count,
     });
 

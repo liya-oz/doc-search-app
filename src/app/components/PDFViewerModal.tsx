@@ -70,7 +70,7 @@ export default function PDFViewerModal({
     setTextLoading(true); 
     setTextError(null);
     try {
-      const res = await fetch(`/api/documents?id=${documentId}`);
+      const res = await fetch(`/api/file-manager/detail?id=${documentId}`);
       const data = await res.json();
       if (data.error) {
         setTextError(data.error);

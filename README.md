@@ -24,3 +24,8 @@ AI-powered document search using vector embeddings, semantic retrieval, and Retr
 - Semantic search powered by vector embeddings
 - Fast and accurate retrieval using PostgreSQL vector search
 - AI-generated answers with context from your documents (RAG)
+
+## Credits
+
+This project was inspired by and partially built using the FreeCodeCamp tutorial:
+[How to Build an AI-Powered RAG Search Application with Next.js, Supabase, and OpenAI](https://www.freecodecamp.org/news/how-to-build-an-ai-powered-rag-search-application-with-nextjs-supabase-and-openai/)
