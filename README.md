@@ -2,6 +2,9 @@
 
 AI-powered document search using vector embeddings, semantic retrieval, and Retrieval-Augmented Generation (RAG).
 
+**Demo:** [https://doc-search-app-gray.vercel.app/](https://doc-search-app-gray.vercel.app/)
+
+
 **Built with:**
 
 - **Frontend:** Next.js app with React components for document upload and semantic search
