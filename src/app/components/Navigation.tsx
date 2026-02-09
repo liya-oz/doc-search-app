@@ -4,30 +4,43 @@ import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
   const pathname = usePathname();
-
   const navItems = [
     { href: '/', label: 'Search' },
     { href: '/documents', label: 'Documents' },
   ];
 
   return (
-    <nav className="border-b border-gray-200 dark:border-gray-800 mb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex space-x-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                pathname === item.href
-                  ? 'border-blue-500 text-blue-600 dark:text-blue-400'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300'
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
+    <nav className="w-full flex justify-center items-center py-4 mb-12 bg-white/70 dark:bg-gray-950/70 backdrop-blur-sm">
+      <div className="w-full max-w-4xl flex items-center justify-between px-4">
+        <span className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100 select-none">
+          DocSearch
+        </span>
+        <ul className="flex gap-8">
+          {navItems.map((item) => {
+            const active = pathname === item.href;
+            return (
+              <li
+                key={item.href}
+                className="relative flex flex-col items-center"
+              >
+                <Link
+                  href={item.href}
+                  className={`text-base font-medium transition-colors duration-150 ${
+                    active
+                      ? 'text-gray-900 dark:text-white'
+                      : 'text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-200'
+                  }`}
+                  style={{ letterSpacing: '0.01em' }}
+                >
+                  {item.label}
+                </Link>
+                {active && (
+                  <span className="mt-2 w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 shadow" />
+                )}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </nav>
   );
