@@ -1,34 +1,69 @@
-# doc-search-app
+# AI-Powered Document Retrieval System (RAG Pipeline)
 
-AI-powered document search using vector embeddings, semantic retrieval, and Retrieval-Augmented Generation (RAG).
+An AI-powered **retrieval and reasoning system** for unstructured documents, built using semantic embeddings and Retrieval-Augmented Generation (RAG). The system transforms raw document collections into a queryable knowledge space where users can retrieve and reason over information using natural language.
 
-**Demo:** [https://doc-search-app-gray.vercel.app/](https://doc-search-app-gray.vercel.app/)
+**Demo:** https://doc-search-app-gray.vercel.app/
 
-
-**Built with:**
-
-- **Frontend:** Next.js app with React components for document upload and semantic search
-- **Backend:** Next.js API routes for handling uploads, search queries, and document management
-- **Database:** Supabase PostgreSQL with pgvector extension for storing and searching embeddings
-- **Storage:** Supabase Storage for managing original document files
-- **AI Integration:** OpenAI for generating vector embeddings and providing chat-based completions
 
 ---
 
-## Product Overview
+## System Overview
 
-**Upload documents, search them semantically, and get accurate AI-generated answers grounded in your own data.**
+This project implements a full **end-to-end RAG pipeline**:
+
+- Documents are ingested and processed into semantic chunks  
+- Each chunk is embedded into a high-dimensional vector space  
+- Vectors are stored and indexed for similarity search  
+- Queries are embedded and matched using semantic similarity  
+- Retrieved context is used by an LLM to generate grounded responses  
+
+The result is a system that enables **context-aware information retrieval and AI-assisted reasoning over private document collections**.
 
 ---
 
-### Key Features
+## Architecture
 
-- Upload and manage your own documents
-- Semantic search powered by vector embeddings
-- Fast and accurate retrieval using PostgreSQL vector search
-- AI-generated answers with context from your documents (RAG)
+- **Frontend:** Next.js (document upload, search interface, results visualization)
+- **Backend:** Next.js API routes (ingestion, retrieval, query orchestration)
+- **Database:** Supabase PostgreSQL with pgvector (vector similarity search)
+- **Storage:** Supabase Storage (raw document persistence)
+- **AI Layer:** OpenAI embeddings + LLM for response generation
+
+---
+
+## Core Capabilities
+
+- Document ingestion and structured chunking pipeline  
+- Semantic search using vector embeddings  
+- Approximate nearest-neighbor retrieval via cosine similarity  
+- Context-grounded answer generation (RAG)  
+- Unified interface for upload, retrieval, and interaction  
+
+---
+
+## Key Idea
+
+Instead of keyword-based search, the system operates in a **semantic vector space**, enabling retrieval based on meaning rather than exact text matching.
+
+This allows:
+- retrieval across paraphrases and implicit meaning  
+- improved robustness over traditional search systems  
+- integration of retrieval with generative AI models  
+
+---
+
+## Technologies
+
+- Next.js  
+- TypeScript  
+- OpenAI API (Embeddings + LLM)  
+- Supabase (PostgreSQL + Storage)  
+- pgvector extension  
+- Tailwind CSS  
+
+---
 
 ## Credits
 
-This project was inspired by and partially built using the FreeCodeCamp tutorial:
-[How to Build an AI-Powered RAG Search Application with Next.js, Supabase, and OpenAI](https://www.freecodecamp.org/news/how-to-build-an-ai-powered-rag-search-application-with-nextjs-supabase-and-openai/)
+This project was inspired by and partially built using:  
+https://www.freecodecamp.org/news/how-to-build-an-ai-powered-rag-search-application-with-nextjs-supabase-and-openai/
